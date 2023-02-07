@@ -24,7 +24,7 @@ export const UseFetchComponent: FC = () => {
   if (error) {
     return (
       <>
-        <p>{error.message}</p>
+        <p>{error}</p>
         <NextPostButton />
       </>
     )
@@ -33,11 +33,12 @@ export const UseFetchComponent: FC = () => {
     return <p>...loading...</p>;
   };
 
-
   return (
-    <div className={styles.center}>
-      <h1>{data.title}</h1>
-      <p>{data.body}</p>
+    <div className={styles.center} style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
+      <div style={{ width: '500px' }}>
+        <h1>{data.title}</h1>
+        <p>{data.body}</p>
+      </div>
       {index === postIds.length - 1
         ? <p>reached end of list</p>
         : <NextPostButton />
