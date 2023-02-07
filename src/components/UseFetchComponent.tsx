@@ -24,7 +24,7 @@ export const UseFetchComponent: FC = () => {
   if (error) {
     return (
       <>
-        <p>{error}</p>
+        <p>{error.message}</p>
         <NextPostButton />
       </>
     )
