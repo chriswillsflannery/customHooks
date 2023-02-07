@@ -14,7 +14,11 @@ type Action<T> =
   | { type: 'FETCH_ERROR'; payload: string }
 
 function useFetch<T> (url: string, options?: RequestInit): State<T> {
+  // alternatively you could use localStorage
   const cache = useRef<Cache<T>>({});
+
+  // optional cancelRequest in useHooks repo
+  // if the component is unmounted before the data is recovered, the fetch will not be called.
 
   // we type the return type when there are multiple potential returns,
   // Matt Pocock has a video on youtube I'll link
